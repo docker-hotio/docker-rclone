@@ -11,8 +11,8 @@ PUID=${PUID}
 PGID=${PGID}
 UMASK=${UMASK}
 TZ=${TZ}
-MOUNT_DIR=${MOUNT_DIR}
 REMOTE=${REMOTE}
+MOUNTPOINT=${MOUNTPOINT}
 ----------------------------------------------------------------------
 "
 

@@ -3,7 +3,7 @@ FROM hotio/base:${BRANCH}
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
-ENV MOUNT_DIR="/mount"
+ENV MOUNTPOINT="/mountpoint"
 
 # install packages
 RUN apt update && \

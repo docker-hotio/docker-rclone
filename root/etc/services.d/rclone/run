@@ -1,4 +1,4 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
-exec rclone mount "${REMOTE}" "${MOUNT_DIR}" --allow-other --uid "${PUID}" --gid "${PGID}" --umask "${UMASK}"
+exec rclone mount "${REMOTE}" "${MOUNTPOINT}" --allow-other --uid "${PUID}" --gid "${PGID}" --umask "${UMASK}"
