@@ -1,8 +1,7 @@
 # rclone
 
-[![GitHub](https://img.shields.io/badge/source-github-lightgrey?style=flat-square)](https://github.com/hotio/docker-rclone)
-[![Docker Pulls](https://img.shields.io/docker/pulls/hotio/rclone?style=flat-square)](https://hub.docker.com/r/hotio/rclone)
-[![Drone (cloud)](https://img.shields.io/drone/build/hotio/docker-rclone?style=flat-square)](https://cloud.drone.io/hotio/docker-rclone)
+[![GitHub](https://img.shields.io/badge/source-github-lightgrey)](https://github.com/hotio/docker-rclone)
+[![Docker Pulls](https://img.shields.io/docker/pulls/hotio/rclone)](https://hub.docker.com/r/hotio/rclone)
 
 ## Starting the container
 
@@ -23,10 +22,10 @@ The environment variables below are all optional, the values you see are the def
 
 ## Tags
 
-| Tag      | Description                    |
-| ---------|--------------------------------|
-| latest   | The same as `stable`           |
-| stable   | Stable version                 |
+| Tag      | Description                    | Build Status                                                                                                                                          |
+| ---------|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| latest   | The same as `stable`           |                                                                                                                                                       |
+| stable   | Stable version                 | [![Build Status](https://cloud.drone.io/api/badges/hotio/docker-rclone/status.svg?ref=refs/heads/stable)](https://cloud.drone.io/hotio/docker-rclone) |
 
 You can also find tags that reference a commit or version number.
 
