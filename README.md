@@ -21,6 +21,15 @@ The environment variables below are all optional, the values you see are the def
 -e MOUNTPOINT=/mountpoint
 ```
 
+## Tags
+
+| Tag      | Description                    |
+| ---------|--------------------------------|
+| latest   | The same as `stable`           |
+| stable   | Stable version                 |
+
+You can also find tags that reference a commit or version number.
+
 ## Configuring rclone
 
 Use `docker exec -it --user hotio rclone rclone config` to configure your remote when the container is running. Configuration files for `rclone` are stored in `/config/.config/rclone`.
