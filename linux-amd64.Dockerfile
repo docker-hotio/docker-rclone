@@ -14,7 +14,7 @@ RUN apt update && \
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 # https://github.com/ncw/rclone/releases
-ARG RCLONE_VERSION=1.50.1
+ARG RCLONE_VERSION=1.50.2
 
 # install rclone
 RUN curl -fsSL -o "/tmp/rclone.deb" "https://github.com/ncw/rclone/releases/download/v${RCLONE_VERSION}/rclone-v${RCLONE_VERSION}-linux-amd64.deb" && dpkg --install "/tmp/rclone.deb"
