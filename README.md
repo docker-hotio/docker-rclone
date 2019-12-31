@@ -9,7 +9,7 @@
 Just the basics to get the container running:
 
 ```shell
-docker run --rm --name rclone -v /tmp/config:/config -v /tmp/mountpoint:/mountpoint:shared -e REMOTE="remote:path/to/files" hotio/rclone
+docker run --rm --name rclone -v /<host_folder_config>:/config -v /<host_folder_mountpoint>:/mountpoint:shared -e REMOTE="remote:path/to/files" hotio/rclone
 ```
 
 The environment variables below are all optional, the values you see are the defaults.
@@ -37,7 +37,7 @@ Use `docker exec -it --user hotio rclone rclone config` to configure your remote
 
 ## Using the rclone mount on the host or in another container
 
-By using the option `:shared` on your volume, you'll be able to access the rclone mount by going to the folder `/tmp/mountpoint` on the host. If you add `--volumes-from rclone` to another container's run command, you can go to the rclone mount from within that container.
+By using the option `:shared` on your volume `/mountpoint`, you'll be able to access the rclone mount by going to the folder on the host. If you add `--volumes-from rclone` to another container's run command, you can go to the rclone mount from within that container.
 
 ## Extra docker privileges
 
