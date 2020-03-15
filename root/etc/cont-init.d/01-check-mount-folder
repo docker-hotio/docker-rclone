@@ -1,0 +1,11 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+umask "${UMASK}"
+
+chmod 555 "${MOUNTPOINT}"
+
+if [[ "$(ls -A "${MOUNTPOINT}")" ]]; then
+    echo "The folder \"${MOUNTPOINT}\" is not empty, make sure the folder is empty before mounting on top of it."
+    exit 1
+fi
