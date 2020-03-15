@@ -3,7 +3,8 @@
 
 umask "${UMASK}"
 
-chmod 555 "${MOUNTPOINT}"
+echo "Removing write permissions on \"${MOUNTPOINT}\", to protect against writes if mount fails."
+chmod a-w "${MOUNTPOINT}"
 
 if [[ "$(ls -A "${MOUNTPOINT}")" ]]; then
     echo "The folder \"${MOUNTPOINT}\" is not empty, make sure the folder is empty before mounting on top of it."
