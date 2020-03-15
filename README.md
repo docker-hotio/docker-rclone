@@ -39,9 +39,9 @@ You can also find tags that reference a commit or version number.
 
 Use `docker exec -it --user hotio rclone rclone config` to configure your remote when the container is running. Configuration files for `rclone` are stored in `/config/.config/rclone`.
 
-## Using the rclone mount on the host or in another container
+## Using the rclone mount on the host
 
-By using the option `:shared` on your volume `/mountpoint`, you'll be able to access the rclone mount by going to the folder on the host. If you add `--volumes-from rclone` to another container's run command, you can go to the rclone mount from within that container.
+By setting the `bind-propagation` to `shared` on the volume `mountpoint`, like this `-v /data/mountpoint:/mountpoint:shared`, you are able to access the mount from the host. If you want to use this mount in another container, the best solution is to create a volume on the parent folder of that mount with `bind-propagation` set to `slave`. For example, `-v /data:/data:slave` (`/data` on the host, would contain the previously created volume `mountpoint`). Doing it like this will ensure that when the container creating the mount restarts, the other containers using that mount will recover and keep working.
 
 ## Extra docker privileges
 
