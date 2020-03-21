@@ -12,7 +12,11 @@
 Just the basics to get the container running:
 
 ```shell
-docker run --rm --name rclone -v /<host_folder_config>:/config -v /<host_folder_mountpoint>:/mountpoint:shared -e REMOTE="remote:path/to/files" hotio/rclone
+docker run --rm --name rclone \
+    -v /<host_folder_config>:/config \
+    -v /<host_folder_mountpoint>:/mountpoint:shared \
+    -e REMOTE="remote:path/to/files" \
+    hotio/rclone
 ```
 
 The environment variables below are all optional, the values you see are the defaults.
