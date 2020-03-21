@@ -23,7 +23,8 @@ The environment variables below are all optional, the values you see are the def
 -e UMASK=002
 -e TZ="Etc/UTC"
 -e ARGS=""
--e MOUNTPOINT=/mountpoint
+-e MOUNTPOINT="/mountpoint"
+-e ROTATE_SA_REMOTE=""
 ```
 
 ## Tags
@@ -42,6 +43,10 @@ Use `docker exec -it --user hotio rclone rclone config` to configure your remote
 ## Using the rclone mount on the host
 
 By setting the `bind-propagation` to `shared` on the volume `mountpoint`, like this `-v /data/mountpoint:/mountpoint:shared`, you are able to access the mount from the host. If you want to use this mount in another container, the best solution is to create a volume on the parent folder of that mount with `bind-propagation` set to `slave`. For example, `-v /data:/data:slave` (`/data` on the host, would contain the previously created volume `mountpoint`). Doing it like this will ensure that when the container creating the mount restarts, the other containers using that mount will recover and keep working.
+
+## Rotating service accounts for supported remotes
+
+By configuring `ROTATE_SA_REMOTE` with the name of the remote that supports service accounts and putting your `*.json` files in the folder `/config/rotate-sa`, everytime the container is started the oldest service account file sorted by modified date is used to start the mount.
 
 ## Extra docker privileges
 
