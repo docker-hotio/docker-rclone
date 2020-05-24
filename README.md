@@ -12,24 +12,10 @@
 Just the basics to get the container running:
 
 ```shell
-docker run --rm --name rclone \
-    -v /<host_folder_config>:/config \
-    -v /<host_folder_mountpoint>:/mountpoint:shared \
-    -e REMOTE="remote:path/to/files" \
-    hotio/rclone
+docker run --rm hotio/rclone ...
 ```
 
-The environment variables below are all optional, the values you see are the defaults.
-
-```shell
--e PUID=1000
--e PGID=1000
--e UMASK=002
--e TZ="Etc/UTC"
--e ARGS=""
--e MOUNTPOINT="/mountpoint"
--e ROTATE_SA_REMOTE=""
-```
+The default `ENTRYPOINT` is `rclone`.
 
 ## Tags
 
@@ -40,32 +26,14 @@ The environment variables below are all optional, the values you see are the def
 
 You can also find tags that reference a commit or version number.
 
-## Configuring rclone
-
-Use `docker exec -it --user hotio rclone rclone config` to configure your remote when the container is running. Configuration files for `rclone` are stored in `/config/.config/rclone`.
-
-## Using the rclone mount on the host
+## Using a rclone mount on the host
 
 By setting the `bind-propagation` to `shared` on the volume `mountpoint`, like this `-v /data/mountpoint:/mountpoint:shared`, you are able to access the mount from the host. If you want to use this mount in another container, the best solution is to create a volume on the parent folder of that mount with `bind-propagation` set to `slave`. For example, `-v /data:/data:slave` (`/data` on the host, would contain the previously created volume `mountpoint`). Doing it like this will ensure that when the container creating the mount restarts, the other containers using that mount will recover and keep working.
 
-## Rotating service accounts for supported remotes
-
-By configuring `ROTATE_SA_REMOTE` with the name of the remote that supports service accounts and putting your `*.json` files in the folder `/config/rotate-sa`, everytime the container is started the oldest service account file sorted by modified date is used to start the mount.
-
 ## Extra docker privileges
 
-In most cases you will need some or all of the following flags added to your command to get the required docker privileges when using a rclone mount.
+In most cases you will need some or all of the following flags added to your command to get the required docker privileges when using `rclone mount`.
 
 ```shell
 --security-opt apparmor:unconfined --cap-add SYS_ADMIN --device /dev/fuse
-```
-
-## Executing your own scripts
-
-If you have a need to do additional stuff when the container starts or stops, you can mount your script with `-v /docker/host/my-script.sh:/etc/cont-init.d/99-my-script` to execute your script on container start or `-v /docker/host/my-script.sh:/etc/cont-finish.d/99-my-script` to execute it when the container stops. An example script can be seen below.
-
-```shell
-#!/usr/bin/with-contenv bash
-
-echo "Hello, this is me, your script."
 ```
