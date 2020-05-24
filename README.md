@@ -1,6 +1,6 @@
 # rclone
 
-<img src="https://raw.githubusercontent.com/hotio/unraid-templates/master/hotio/img/rclone.png" alt="Logo" height="130" width="130">
+<img src="https://raw.githubusercontent.com/hotio/docker-rclone/master/img/rclone.png" alt="Logo" height="130" width="130">
 
 [![GitHub](https://img.shields.io/badge/source-github-lightgrey)](https://github.com/hotio/docker-rclone)
 [![Docker Pulls](https://img.shields.io/docker/pulls/hotio/rclone)](https://hub.docker.com/r/hotio/rclone)
