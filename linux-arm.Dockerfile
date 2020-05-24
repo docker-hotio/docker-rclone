@@ -22,7 +22,7 @@ ENTRYPOINT ["rclone"]
 # install packages
 RUN apt update && \
     apt install -y --no-install-recommends --no-install-suggests \
-        fuse && \
+        ca-certificates fuse && \
 # clean up
     apt autoremove -y && \
     apt clean && \
