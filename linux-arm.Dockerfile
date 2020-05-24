@@ -1,8 +1,23 @@
-FROM hotio/base@sha256:d668da1b18583d94b5ddb8e8c25012d24bf3ad54231ab8af2f0ed0ca02bcc6ff
+FROM ubuntu:18.04 as builder
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
-ENV MOUNTPOINT="/mountpoint"
+# install
+RUN apt update && \
+    apt install -y --no-install-recommends --no-install-suggests \
+        ca-certificates curl unzip
+
+# install rclone
+ARG RCLONE_VERSION
+RUN zipfile="/tmp/rclone.zip" && curl -fsSL -o "${zipfile}" "https://github.com/ncw/rclone/releases/download/v${RCLONE_VERSION}/rclone-v${RCLONE_VERSION}-linux-arm.zip" && unzip -q "${zipfile}" -d "/tmp" && cp /tmp/rclone-*-linux-arm/rclone /usr/local/bin/rclone && chmod 755 /usr/local/bin/rclone
+
+
+FROM ubuntu@sha256:214d66c966334f0223b036c1e56d9794bc18b71dd20d90abb28d838a5e7fe7f1
+LABEL maintainer="hotio"
+
+ARG DEBIAN_FRONTEND="noninteractive"
+
+ENTRYPOINT ["rclone"]
 
 # install packages
 RUN apt update && \
@@ -13,9 +28,4 @@ RUN apt update && \
     apt clean && \
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
-ARG RCLONE_VERSION
-
-# install rclone
-RUN debfile="/tmp/rclone.deb" && curl -fsSL -o "${debfile}" "https://github.com/ncw/rclone/releases/download/v${RCLONE_VERSION}/rclone-v${RCLONE_VERSION}-linux-arm.deb" && dpkg --install "${debfile}" && rm "${debfile}"
-
-COPY root/ /
+COPY --from=builder /usr/local/bin/rclone /usr/local/bin/rclone

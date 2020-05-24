@@ -1,5 +1,0 @@
-#!/usr/bin/with-contenv bash
-# shellcheck shell=bash
-
-# shellcheck disable=SC2086
-exec rclone mount "${REMOTE}" "${MOUNTPOINT}" --allow-other --uid "${PUID}" --gid "${PGID}" --umask "${UMASK}" ${ARGS}
