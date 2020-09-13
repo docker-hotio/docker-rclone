@@ -4,8 +4,8 @@ FROM alpine:3.11 as builder
 RUN apk add --no-cache unzip
 
 # install rclone
-ARG RCLONE_VERSION
-RUN zipfile="/tmp/rclone.zip" && wget -O "${zipfile}" "https://downloads.rclone.org/v${RCLONE_VERSION}/rclone-v${RCLONE_VERSION}-linux-arm64.zip" && unzip -q "${zipfile}" -d "/tmp" && cp /tmp/rclone-*-linux-arm64/rclone /usr/local/bin/rclone && chmod 755 /usr/local/bin/rclone
+ARG VERSION
+RUN zipfile="/tmp/rclone.zip" && wget -O "${zipfile}" "https://downloads.rclone.org/v${VERSION}/rclone-v${VERSION}-linux-arm64.zip" && unzip -q "${zipfile}" -d "/tmp" && cp /tmp/rclone-*-linux-arm64/rclone /usr/local/bin/rclone && chmod 755 /usr/local/bin/rclone
 
 
 FROM alpine@sha256:3b3f647d2d99cac772ed64c4791e5d9b750dd5fe0b25db653ec4976f7b72837c
@@ -16,18 +16,3 @@ ENTRYPOINT ["rclone"]
 RUN apk add --no-cache fuse
 
 COPY --from=builder /usr/local/bin/rclone /usr/local/bin/rclone
-
-ARG LABEL_CREATED
-LABEL org.opencontainers.image.created=$LABEL_CREATED
-ARG LABEL_TITLE
-LABEL org.opencontainers.image.title=$LABEL_TITLE
-ARG LABEL_REVISION
-LABEL org.opencontainers.image.revision=$LABEL_REVISION
-ARG LABEL_SOURCE
-LABEL org.opencontainers.image.source=$LABEL_SOURCE
-ARG LABEL_VENDOR
-LABEL org.opencontainers.image.vendor=$LABEL_VENDOR
-ARG LABEL_URL
-LABEL org.opencontainers.image.url=$LABEL_URL
-ARG LABEL_VERSION
-LABEL org.opencontainers.image.version=$LABEL_VERSION
