@@ -16,7 +16,7 @@ elif [[ ${1} == "tests" ]]; then
     docker run --rm --entrypoint="" "${2}" rclone version
 else
     version=$(curl -fsSL "https://beta.rclone.org/version.txt" | sed s/rclone\ v//g)
-    [[ -z ${version} ]] && exit 0
+    [[ -z ${version} ]] && exit 1
     echo "VERSION=${version}" > VERSION
     echo "##[set-output name=version;]${version}"
 fi
