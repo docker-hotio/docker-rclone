@@ -21,10 +21,10 @@ The default `ENTRYPOINT` is `rclone`.
 
 ## Tags
 
-| Tag              | Upstream      |
-| -----------------|---------------|
-| release (latest) | Releases      |
-| testing          | Beta releases |
+| Tag                | Upstream      |
+| -------------------|---------------|
+| `release` (latest) | Releases      |
+| `testing`          | Beta releases |
 
 You can also find tags that reference a commit or version number.
 
