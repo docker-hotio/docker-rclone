@@ -18,5 +18,6 @@ else
     version=$(curl -fsSL "https://downloads.rclone.org/version.txt" | sed s/rclone\ v//g)
     [[ -z ${version} ]] && exit 1
     echo "VERSION=${version}" > VERSION
+    echo '{"version":"'"${version}"'"}' > VERSION.json
     echo "##[set-output name=version;]${version}"
 fi
