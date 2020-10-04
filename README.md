@@ -1,11 +1,11 @@
 [<img src="https://hotio.dev/img/rclone.png" alt="logo" height="130" width="130">](https://github.com/rclone/rclone)
 
-![Base](https://img.shields.io/badge/base-alpine-blue)
-[![GitHub](https://img.shields.io/badge/source-github-lightgrey)](https://github.com/hotio/docker-rclone)
-[![Docker Pulls](https://img.shields.io/docker/pulls/hotio/rclone)](https://hub.docker.com/r/hotio/rclone)
-[![GitHub Registry](https://img.shields.io/badge/registry-ghcr.io-blue)](https://github.com/users/hotio/packages/container/package/rclone)
-[![Discord](https://img.shields.io/discord/610068305893523457?color=738ad6&label=discord&logo=discord&logoColor=white)](https://discord.gg/3SnkuKp)
-[![Upstream](https://img.shields.io/badge/upstream-project-yellow)](https://github.com/rclone/rclone)
+[![GitHub Source](https://img.shields.io/badge/github-source-ffb64c?style=flat-square&logo=github&logoColor=white)](https://github.com/docker-hotio/docker-rclone)
+[![GitHub Registry](https://img.shields.io/badge/github-registry-ffb64c?style=flat-square&logo=github&logoColor=white)](https://github.com/users/hotio/packages/container/package/rclone)
+[![Docker Pulls](https://img.shields.io/docker/pulls/hotio/rclone?color=ffb64c&style=flat-square&label=pulls&logo=docker&logoColor=white)](https://hub.docker.com/r/hotio/rclone)
+[![Discord](https://img.shields.io/discord/610068305893523457?style=flat-square&color=ffb64c&label=discord&logo=discord&logoColor=white)](https://hotio.dev/discord)
+[![Upstream](https://img.shields.io/badge/upstream-project-ffb64c?style=flat-square)](https://github.com/rclone/rclone)
+[![Website](https://img.shields.io/badge/website-hotio.dev-ffb64c?style=flat-square)](https://hotio.dev/containers/rclone)
 
 ## Starting the container
 
