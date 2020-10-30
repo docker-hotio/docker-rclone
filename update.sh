@@ -17,6 +17,9 @@ elif [[ ${1} == "tests" ]]; then
 else
     version=$(curl -fsSL "https://beta.rclone.org/version.txt" | sed s/rclone\ v//g)
     [[ -z ${version} ]] && exit 1
+    wget --spider "https://beta.rclone.org/v${version}/rclone-v${version}-linux-amd64.zip" 2>/dev/null || exit 0
+    wget --spider "https://beta.rclone.org/v${version}/rclone-v${version}-linux-arm64.zip" 2>/dev/null || exit 0
+    wget --spider "https://beta.rclone.org/v${version}/rclone-v${version}-linux-arm.zip" 2>/dev/null || exit 0
     echo '{"version":"'"${version}"'"}' | jq . > VERSION.json
     echo "##[set-output name=version;]${version}"
 fi
