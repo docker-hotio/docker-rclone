@@ -17,6 +17,8 @@ elif [[ ${1} == "tests" ]]; then
 else
     version=$(curl -fsSL "https://downloads.rclone.org/version.txt" | sed s/rclone\ v//g)
     [[ -z ${version} ]] && exit 1
-    echo '{"version":"'"${version}"'"}' | jq . > VERSION.json
-    echo "##[set-output name=version;]${version}"
+    old_version=$(jq -r '.version' < VERSION.json)
+    changelog=$(jq -r '.changelog' < VERSION.json)
+    [[ "${old_version}" != "${version}" ]] && changelog="https://github.com/rclone/rclone/compare/v${old_version}...v${version}"
+    echo '{"version":"'"${version}"'","changelog":"'"${changelog}"'"}' | jq . > VERSION.json
 fi
