@@ -22,6 +22,6 @@ else
     wget --spider "https://beta.rclone.org/v${version}/rclone-v${version}-linux-arm.zip" 2>/dev/null || exit 0
     old_version=$(jq -r '.version' < VERSION.json)
     changelog=$(jq -r '.changelog' < VERSION.json)
-    [[ "${old_version: -9}" != "${version: -9}" ]] && changelog="https://github.com/rclone/rclone/compare/${old_version: -9}...${version: -9}"
+    [[ "${old_version}" != "${version}" ]] && changelog="https://github.com/rclone/rclone/compare/${old_version: -9}...${version: -9}"
     echo '{"version":"'"${version}"'","changelog":"'"${changelog}"'"}' | jq . > VERSION.json
 fi
