@@ -19,12 +19,7 @@ The default `ENTRYPOINT` is `rclone`.
 
 ## Tags
 
-| Tag                | Upstream      | Version | Build |
-| -------------------|---------------|---------|-------|
-| `release` (latest) | Releases      | ![version](https://img.shields.io/badge/dynamic/json?color=f5f5f5&style=flat-square&label=&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fhotio%2Frclone%2Frelease%2FVERSION.json) | ![build](https://img.shields.io/github/workflow/status/hotio/rclone/build/release?style=flat-square&label=) |
-| `testing`          | Beta releases | ![version](https://img.shields.io/badge/dynamic/json?color=f5f5f5&style=flat-square&label=&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fhotio%2Frclone%2Ftesting%2FVERSION.json) | ![build](https://img.shields.io/github/workflow/status/hotio/rclone/build/testing?style=flat-square&label=) |
-
-You can also find tags that reference a commit or version number.
+Go [here](https://hotio.dev/containers-overview/#hotiorclone) to see all available tags.
 
 ## Using a rclone mount on the host
 
