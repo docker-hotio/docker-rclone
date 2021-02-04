@@ -19,7 +19,7 @@ The default `ENTRYPOINT` is `rclone`.
 
 ## Tags
 
-Go [here](https://hotio.dev/containers-overview/#hotiorclone) to see all available tags.
+Go [here](https://hotio.dev/tags-overview/#hotiorclone) to see all available tags.
 
 ## Using a rclone mount on the host
 
