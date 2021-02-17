@@ -8,7 +8,7 @@ ARG VERSION
 RUN zipfile="/tmp/rclone.zip" && wget -O "${zipfile}" "https://beta.rclone.org/v${VERSION}/rclone-v${VERSION}-linux-arm64.zip" && unzip -q "${zipfile}" -d "/tmp" && cp /tmp/rclone-*-linux-arm64/rclone /usr/local/bin/rclone && chmod 755 /usr/local/bin/rclone
 
 
-FROM alpine@sha256:019c59128325536e838a5f36028db214335129f9aa83214cc2c60c10dc1797ac
+FROM alpine@sha256:c45a1db6e04b73aad9e06b08f2de11ce8e92d894141b2e801615fa7a8f68314a
 LABEL maintainer="hotio"
 ENTRYPOINT ["rclone"]
 
